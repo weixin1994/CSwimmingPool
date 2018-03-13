@@ -50,13 +50,14 @@ int my_getnbr(char const *str)
 		m = m * 10;
 		i++;
 	}
-	printf("transformed s=%d",s);
-	return 0;
+	if(count_minus % 2 == 1)
+		s = s * -1;
+	return s;
 }
 
 int main()
 {
-	char *str = "+++----+--42++3+--";
+	char *str = "+++-----+--42++3+--";
 	my_getnbr(str);
 	return 0;
 }
