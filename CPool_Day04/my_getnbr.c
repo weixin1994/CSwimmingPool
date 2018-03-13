@@ -25,29 +25,38 @@ int my_getnbr(char const *str)
 		if(flag_isnum == 1)
 			break;
 	}
+	//printf("%d,%d,%d,%d",count_plus,count_minus,count_num,i);
 	char array[count_num];
-	int k = count_num;
+	int count = 0;
+	count = count_num - 1;
+	int k = count;
 	while(j <= i)
 	{
 		if(str[j] >= '0' && str[j] <= '9')
 		{
-			array[count_num] = str[j];
-			count_num--;
+			array[count] = str[j];
+			count--;
 		}
 		j++;
 	}
-	
-	while(k > 0)
-	{
-		printf("%c",array[k]);
-		k--;
+	int s = 0;
+	int m = 1;
+	int x = 0;
+	i = 0;
+	while(i <= k)
+	{	
+		x = array[i] - '0';
+		s = s + x * m;
+		m = m * 10;
+		i++;
 	}
+	printf("transformed s=%d",s);
 	return 0;
 }
 
 int main()
 {
-	char *str = "+++----+--423++3+--";
+	char *str = "+++----+--42++3+--";
 	my_getnbr(str);
 	return 0;
 }
