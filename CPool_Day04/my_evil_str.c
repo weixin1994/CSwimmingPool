@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-int my_strlen(char const *str)
-{
-	int len=0;
-	while((*str++)!='\0')
-	len++;
-	return len;
-}
-
+#include "my_str.h"
 char *my_evil_str(char *str)
 {
 	char temp;
@@ -22,4 +15,3 @@ char *my_evil_str(char *str)
 	}
 	return str;
 }
-
