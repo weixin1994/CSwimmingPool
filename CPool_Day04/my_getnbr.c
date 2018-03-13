@@ -21,5 +21,6 @@ int my_getnbr(char const *str)
 			flag_minus++;
 		i++;
 	}
+	if()
 	return 0;
 }
