@@ -14,6 +14,7 @@ int my_transform(int num)
 	}
 	return 0;
 }
+
 int my_put_nbr(int nb)
 {
 	if(nb >= 0)
@@ -25,6 +26,5 @@ int my_put_nbr(int nb)
 		write(1,&minus,1);
 		my_transform(nb);
 	}
-
 	return 0;
 }

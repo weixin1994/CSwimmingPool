@@ -36,9 +36,5 @@ int my_print_combn(int n)
 		}
 		i++;
 	}
-	
-		
-	
-	
 	return 0;
 }
