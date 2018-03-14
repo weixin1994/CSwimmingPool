@@ -1,5 +1,15 @@
 #include <stdio.h>
 #include "my_str.h"
+int my_strcmp(const char *s1,const char *s2)
+{
+	while(*s1 && *s2 &&(*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return *s1-*s2;
+}
+
 char *my_evil_str(char *str)
 {
 	char temp;
@@ -54,7 +64,7 @@ int my_getnbr(char const *str)
 		j++;
 	}
 	array[count_num] = '\0'; 
-	printf("%s",array);
+	//printf("%s",array);
 	char *array2 = my_evil_str(array);
 	printf("%s",array2);
 		
@@ -62,22 +72,47 @@ int my_getnbr(char const *str)
 	int m = 1;
 	int x = 0;
 	i = 0;
-	while(i <= k)
-	{	
-		x = array2[k] - '0';
-		s = s + x * m;
-		m = m * 10;
-		k--;
+	int flag_bey = 0;
+	char *max = "2147483647";
+	char *max_minus = "2147483648";
+	
+	if(my_strlen(array2) > 10)
+		s = 0;
+	if(my_strlen(array2) == 10)
+	{
+		if(count_minus % 2 == 1)
+		{	
+			flag_bey = my_strcmp(array2,max_minus);	
+		}
+		if(count_minus % 2 == 0)
+		{
+			flag_bey = my_strcmp(array2,max);
+		}
 	}
-	if(count_minus % 2 == 1)
-		s = s * -1;
+	if(flag_bey > 0)
+		s = 0;
+	if(my_strlen(array2) < 10)
+	{
+		while(i <= k)
+		{	
+			x = array2[k] - '0';
+			s = s + x * m;
+			m = m * 10;
+			k--;
+		}
+		if(count_minus % 2 == 1)
+			s = s * -1;
+	}
+	printf("flag_bey=%d",flag_bey);
+		
 	printf("s=%d",s);
 	return s;
 }
 
 int main()
 {
-	char *str = "+++-----+--4233++3+--";
+	//char *str = "+++----+--444343345++3+--";
+	char *str = "-a++42";
 	my_getnbr(str);
 	return 0;
 }
