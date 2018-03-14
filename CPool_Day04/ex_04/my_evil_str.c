@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-#include "my_str.h"
+int my_strlen(char const *str);
 char *my_evil_str(char *str)
 {
 	char temp;

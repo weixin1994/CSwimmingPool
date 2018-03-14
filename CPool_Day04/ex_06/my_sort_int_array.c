@@ -17,15 +17,3 @@ void my_sort_int_array(int *array,int size)
 	}
 }
 
-int main(void)
-{
-	int k = 0;
-	int arra[] = {3,4,1,2,7,5,7,8,5,6};
-	int a = sizeof(arra)/sizeof(arra[0]);
-	my_sort_int_array(arra,a);
-	for(;k < 10;k++)
-	{
-		printf("%d",arra[k]);
-	}
-	return 0;
-}
