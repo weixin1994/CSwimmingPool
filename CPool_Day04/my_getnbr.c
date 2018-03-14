@@ -1,5 +1,19 @@
 #include <stdio.h>
 #include "my_str.h"
+char *my_evil_str(char *str)
+{
+	char temp;
+	int i = 0;
+	int len = my_strlen(str);
+	while(i < len/2)
+	{
+		temp = str[i];
+		str[i] = str[len - 1 - i];
+		str[len - 1 - i] = temp;
+		i++;
+	}
+	return str;
+}
 int my_getnbr(char const *str)
 {
 	int len = my_strlen(str);
@@ -26,7 +40,7 @@ int my_getnbr(char const *str)
 			break;
 	}
 	//printf("%d,%d,%d,%d",count_plus,count_minus,count_num,i);
-	char array[count_num];
+	char array[count_num-1];
 	int count = 0;
 	count = count_num - 1;
 	int k = count;
@@ -39,25 +53,31 @@ int my_getnbr(char const *str)
 		}
 		j++;
 	}
+	array[count_num] = '\0'; 
+	printf("%s",array);
+	char *array2 = my_evil_str(array);
+	printf("%s",array2);
+		
 	int s = 0;
 	int m = 1;
 	int x = 0;
 	i = 0;
 	while(i <= k)
 	{	
-		x = array[i] - '0';
+		x = array2[k] - '0';
 		s = s + x * m;
 		m = m * 10;
-		i++;
+		k--;
 	}
 	if(count_minus % 2 == 1)
 		s = s * -1;
+	printf("s=%d",s);
 	return s;
 }
 
 int main()
 {
-	char *str = "+++-----+--42++3+--";
+	char *str = "+++-----+--4233++3+--";
 	my_getnbr(str);
 	return 0;
 }
