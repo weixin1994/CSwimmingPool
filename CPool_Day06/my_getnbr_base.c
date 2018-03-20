@@ -1,42 +1,7 @@
 #include <stdio.h>
-int my_strlen(const char *s)
-{
-	int len=0;
-	while((*s++)!='\0')
-	len++;
-	return len;
-}
-
-char *my_evil_str(char *str)
-{
-	char temp;
-	int i = 0;
-	int len = my_strlen(str);
-	while(i < len/2)
-	{
-		temp = str[i];
-		str[i] = str[len - 1 - i];
-		str[len - 1 - i] = temp;
-		i++;
-	}
-	return str;
-}
-
-int my_compute_power_it(int nb,int p)
-{	
-	int res = 1;
-	if(p == 0)
-		res = 1;
-	if(p < 0)
-		res = 0;
-	while(p > 0)
-	{
-		res = res * nb;
-		p--;
-	}	
-	return res;
-}
-
+int my_strlen(const char *s);
+char *my_revstr(char *str);
+int my_compute_power_it(int nb,int p);
 int	my_getnbr_base(char *str, char *base)
 {
 	int a = 0;
@@ -62,7 +27,7 @@ int	my_getnbr_base(char *str, char *base)
 		b++;
 	}
 	array[count_num] = '\0'; 
-	char *digit_str = my_evil_str(array);
+	char *digit_str = my_revstr(array);
 	int	i,j,result;
 	i = my_strlen(digit_str) - 1;
 	result = 0;
@@ -85,4 +50,3 @@ int	my_getnbr_base(char *str, char *base)
 		result = result * -1;
     return result;
 }
-

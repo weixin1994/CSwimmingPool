@@ -1,12 +1,5 @@
 #include <stdio.h>
-int my_strlen(const char *s)
-{
-	int len=0;
-	while((*s++)!='\0')
-	len++;
-	return len;
-}
-
+int my_strlen(const char *s);
 int my_str_isnum(char const *str)
 {
 	int flag = 0;
@@ -29,4 +22,3 @@ int my_str_isnum(char const *str)
 	}	
 	return flag;
 }
-

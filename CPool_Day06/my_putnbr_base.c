@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-int my_strlen(const char *s)
-{
-	int len=0;
-	while((*s++)!='\0')
-	len++;
-	return len;
-}
-
+int my_strlen(const char *s);
 int my_putnbr_base(int nbr, char const *base)
 {
 	char minus = '-';
@@ -25,4 +18,3 @@ int my_putnbr_base(int nbr, char const *base)
 		write(1,&base[nbr % my_strlen(base)],1);
 	return 0;
 }
-

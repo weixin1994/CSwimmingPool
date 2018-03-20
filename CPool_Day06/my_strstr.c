@@ -1,12 +1,5 @@
 #include <stdio.h>
-int my_strlen(const char *s)
-{
-	int len=0;
-	while((*s++)!='\0')
-	len++;
-	return len;
-}
-
+int my_strlen(const char *s);
 char *my_strstr(char *str, char const *to_find)
 {
 	if (!str || !to_find || my_strlen(to_find) > my_strlen(str))
@@ -24,5 +17,3 @@ char *my_strstr(char *str, char const *to_find)
 	}	
 	return NULL;
 }
-
-  

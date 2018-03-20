@@ -1,12 +1,5 @@
 #include <stdio.h>
-int my_strlen(const char *s)
-{
-	int len=0;
-	while((*s++)!='\0')
-	len++;
-	return len;
-}
-
+int my_strlen(const char *s);
 char *my_tolowcase(char *str)
 {
 	if(str != NULL)
@@ -44,5 +37,3 @@ char *my_strcapitalize(char *str)
 	else
 		return NULL;
 }
-
-

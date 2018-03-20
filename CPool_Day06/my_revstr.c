@@ -1,12 +1,5 @@
 #include <stdio.h>
-int my_strlen(const char *s)
-{
-	int len=0;
-	while((*s++)!='\0')
-	len++;
-	return len;
-}
-
+int my_strlen(const char *s);
 char *my_revstr(char *str)
 {	
 	char temp;
@@ -21,4 +14,3 @@ char *my_revstr(char *str)
 	}
 	return str;
 }
-

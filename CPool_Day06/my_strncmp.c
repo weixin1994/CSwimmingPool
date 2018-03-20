@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 int my_strncmp(const char *s1, const char *s2, int n)
 {
 	if(n == 0)
@@ -11,5 +10,3 @@ int my_strncmp(const char *s1, const char *s2, int n)
 	}
 	return *s1-*s2;
 }
-
-
