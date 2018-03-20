@@ -10,11 +10,11 @@ int my_strlen(const char *s)
 
 int my_putnbr_base(int nbr, char const *base)
 {
-	char dash = '-';
+	char minus = '-';
 	if (nbr < 0) 
 	{
-		nbr = -nbr;
-		write(1,&dash,1);
+		nbr = nbr * -1;
+		write(1,&minus,1);
 	}
 	if (nbr > my_strlen(base) - 1) 
 	{
