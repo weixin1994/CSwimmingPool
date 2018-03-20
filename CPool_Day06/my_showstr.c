@@ -3,19 +3,21 @@
 int my_putnbr_base(int nbr, char const *base);
 int my_strlen(const char *s);
 int my_showstr(char const *str)
-{
+{	
+	int i;
+	char zero = '0';
 	char conv = '\\';
-	int i = 0;
-	while (i < my_strlen(str)) 
+	for (i = 0;str[i];i++)
 	{
-		if (str[i] >= 32 && str[i] <= 126)
-			write(1,&str[i],1);
-		else
+		if(str[i] < 32 || str[i] > 126)
 		{
 			write(1,&conv,1);
-			my_putnbr_base(str[i],"0123456789ABCDEF");
+			if(str[i] < 16)
+				write(1,&zero,1);
+			my_putnbr_base(str[i],"0123456789abcdef");
 		}
-		i++;	
+		else
+			write(1,&str[i],1);
 	}
 	return 0;
 }
