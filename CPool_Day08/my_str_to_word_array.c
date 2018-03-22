@@ -6,6 +6,7 @@ int my_putstr(char const *str);
 
 char **my_str_to_word_array(char const *str)
 {
+	
 	int i = 0;
 	int row = 0;
 	int col = 0;
@@ -16,7 +17,7 @@ char **my_str_to_word_array(char const *str)
 	dest[0] = malloc(sizeof(char) * (my_strlen(str) + 1));
 	while(str[i] != '\0') 
 	{
-		if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) 
+		if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z') || (str[i] >= '0' && str[i] <= '9')) 
 		{
 			flag_islastalpha = 1;
 			dest[row][col] = str[i];
