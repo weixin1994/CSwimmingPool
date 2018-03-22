@@ -17,9 +17,13 @@ char *concat_params(int argc, char **argv)
 	dest = malloc(sizeof(char) * len);
 	for(i = 0; i < argc; i++) 
 	{
+		dest = my_strcat(dest, argv[i]);
 		temp = malloc(my_strlen(argv[i]) + 2);
 		my_strcpy(temp, argv[i]);
-		dest = my_strcat(dest, my_strcat(temp, div));
+		if(i < argc - 1)
+			dest = my_strcat(dest, my_strcat(temp, div));
+		else
+			dest = my_strcat(dest, my_strcat(temp, "\0"));	
 	}
 	dest = my_strcat(dest, "\0");
 	return dest;
