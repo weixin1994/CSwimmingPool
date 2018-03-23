@@ -14,5 +14,6 @@ struct info_param *my_params_to_array(int ac, char **av)
 		para_info[i].copy = my_strdup(av[i]);
 		para_info[i].word_array = my_str_to_word_array(av[i]);
 	}
+	para_info[i + 1].str = '\0';
 	return para_info;
 }
