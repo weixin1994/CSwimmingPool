@@ -11,6 +11,5 @@ clean:
 fclean:
 	rm -rf do-op
 	
-re:
-	fclean all
+re:		fclean all
 	

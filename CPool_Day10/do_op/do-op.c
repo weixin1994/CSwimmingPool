@@ -39,7 +39,13 @@ int main(int argc, char *argv[])
 	if(argc == 4)
 	{
 		if(do_op(argv[1],argv[2],argv[3]) != 0)
-			printf("%d\n",do_op(argv[1],argv[2],argv[3]));
+		{
+			my_put_nbr(do_op(argv[1],argv[2],argv[3]));
+			my_putstr("\n");
+		}
+			
+		return 0;
 	}
-	return 0;
+	else
+		return 84;
 }
