@@ -1,15 +1,18 @@
-all:compile
+SRC	=	$(wildcard *.c)
 
-compile:
-	gcc -o do-op do-op.c -L ../lib -lmy
+OBJ	=	$(SRC:.c=.o)
+
+NAME	=	do-op
+
+all:	$(NAME)
+
+$(NAME):	$(OBJ)
+	gcc -o $(NAME) $(OBJ)  -L ../lib/ -lmy
 
 clean:
-	rm -rf *.o
-	rm -rf *.a
-	rm -rf *.h
-	
-fclean:
-	rm -rf do-op
-	
-re:		fclean all
-	
+		rm -f *.o
+
+fclean:	clean
+	rm -f $(NAME)
+
+re:	fclean all
