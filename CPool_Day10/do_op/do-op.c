@@ -36,15 +36,20 @@ int do_op(char *num1, char *op, char *num2)
 
 int main(int argc, char *argv[])
 {
+	char op = argv[2][0];
+	int num2 = my_getnbr(argv[3]);
 	if(argc == 4)
 	{
 		if(do_op(argv[1],argv[2],argv[3]) != 0)
 		{
 			my_put_nbr(do_op(argv[1],argv[2],argv[3]));
 			my_putstr("\n");
+			return 0;
 		}
-			
-		return 0;
+		if(op != '+' && op != '-' && op != '*' && op != '/' && op != '%')
+			return 84;
+		if((op == '/' || op == '%') && num2 == '0')
+			return 84;
 	}
 	else
 		return 84;
