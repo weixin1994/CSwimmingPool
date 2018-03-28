@@ -15,7 +15,7 @@ int main(int argc,char *argv[])
 	
 	if(argc == 1)
 	{
-		while(rc = read(0,buffer,5))
+		while(rc = read(0,buffer,30))
 			write(1,buffer,rc);	
 	}
 	rc = 0;
@@ -30,7 +30,7 @@ int main(int argc,char *argv[])
 				if(errno == 21)
 				{
 					my_putstr("my_cat: ");
-					my_putstr(argv[1]);
+					my_putstr(argv[i]);
 					my_putstr(": ");
 					my_putstr("Is a directory\n");
 					break;
